@@ -7,7 +7,7 @@ from flask_cors import CORS
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="Ganache.80!!",
+    password="",
     database="archilog"
 )
 
