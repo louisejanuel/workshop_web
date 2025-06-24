@@ -1,4 +1,9 @@
-bonjour {{session['user']}}
+{% extends "layout.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+<h1> BONJOUR  {{session['user']}}</h1>
 
 <ul>
     {% for (title,) in data %}
@@ -8,3 +13,4 @@ bonjour {{session['user']}}
 
 <a href='/match'>Voir mes matchs</a>
 <a href='/logout'>Se déconnecter</a>
+{% endblock %}
