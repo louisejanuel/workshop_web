@@ -2,7 +2,6 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    zoom: 95%
 }
 
 body {
@@ -51,9 +50,6 @@ input {
     border-radius: 5px;
 }
 
-a:hover{
-    text-decoration: underline;
-}
 
 main{
     margin: 0 15%;
@@ -85,7 +81,7 @@ footer a {
 }
 
 .lien a:hover {
-    color: lightgrey;
+    color: #f38e48;
     text-decoration: none;
 }
 

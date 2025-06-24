@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
 
-<head>
-    <meta charset="UTF-8" />
-    <title>Uning uningan</title>
-    <link rel="stylesheet" href="static/style.css">
-    <script src="{{ url_for('static', filename='anim.js') }}" defer></script>
-</head>
+{% block title %}Accueil{% endblock %}
 
-<body>
-    <div id="background"></div>
-    <header>
-        <div> <img src="../static/steve.jpg" alt="logo imac" href="#" /> </div>
-        <div class="lien">
-            <a href="/">Accueil</a>
-            <a href="#">Inscription</a>
-            <a href="/login">Connexion</a>
-        </div>
-    </header>
-
-    <main>
-        <h1>INSCRIPTION</h1>
+{% block content %}
+<h1>INSCRIPTION</h1>
         <form method="post">
             <input type="firstName" name="firstName" placeholder="Prénom" required>
             <input type="lastName" name="lastName" placeholder="Nom" required>
@@ -28,7 +11,4 @@
             <input type="password" name="password" placeholder="Mot de passe" required>
             <button class="bouton2" type="submit">S'inscrire</button>
         </form>
-    </main>
-</body>
-
-</html>
+{% endblock %}
