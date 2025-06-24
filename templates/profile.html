@@ -1,0 +1,9 @@
+bonjour {{session['user']}}
+
+<ul>
+    {% for title in data %}
+    <li>{{ title }}</li>
+    {% endfor %}
+</ul>
+
+<a href='/logout'>Se déconnecter</a>
