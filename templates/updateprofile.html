@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+
+<h1>MODIFIER PROFIL</h1>
+<form method="post">
+    <input type="userName" name="userName" placeholder="Nom d'utilisateur" required>
+    <input type="password" name="password" placeholder="Mot de passe" required>
+    <button class="bouton2" type="submit">Modifier</button>
+</form>
+{% endblock %}

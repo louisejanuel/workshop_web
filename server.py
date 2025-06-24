@@ -1,5 +1,6 @@
 from config import app
 from py.loginout import *
+from py.profile import *
 from py.match import *
 
 @app.route("/")
