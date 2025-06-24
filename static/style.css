@@ -1,14 +1,147 @@
-html {
-    color: red;
-    text-align: center;
-    margin: auto;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    zoom: 95%
 }
 
-a {
-    color: black;
-    text-decoration: none;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centre les enfants horizontalement */
+    justify-content: flex-start; /* on garde les éléments en haut par défaut */
+    background-color: #f4e5d2;
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+header {
+    width: 100%;
+    background-color: #e9d8ba;
+    padding: 20px 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main {
+    flex: 1; /* prend le reste de la page */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* centre verticalement dans main */
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 30px auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+input {
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #f38e48;
+    border-radius: 5px;
 }
 
 a:hover{
     text-decoration: underline;
+}
+
+main{
+    margin: 0 15%;
+}
+
+header {
+    background-color: #e9d8ba;
+    padding: 20px 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.lien {
+    color: #f38e48;
+    padding: 15px 0;
+}
+
+.lien a {
+    margin: 0 70px;
+    text-decoration: none;
+    color: #f38e48;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.lien a:visited,
+footer a {
+    color: #f38e48;
+}
+
+.lien a:hover {
+    color: lightgrey;
+    text-decoration: none;
+}
+
+img {
+    width: 50px;
+    height: auto;
+}
+
+.button {
+    width: 300px;
+    height: 98px;
+    padding: 16px;
+    border: 3px solid #f38e48;
+    border-radius: 5px;
+    background-color:#e9d8ba;
+    color: #f38e48;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    margin: 60px auto;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #f38e48;
+    color: #e9d8ba;
+}
+
+.bouton2 {
+    width: 100%;
+    padding: 20px;
+    border: 3px solid #f38e48;
+    border-radius: 5px;
+    background-color: #e9d8ba;
+    color: #f38e48;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.bouton2:hover {
+    cursor: pointer;
+    background-color: #f38e48;
+    color: #e9d8ba;
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background-image: url('../static/orange.jpg');
+    background-size: cover;
+    pointer-events: none;
+    z-index: -1;
 }
