@@ -3,7 +3,6 @@ from flask import render_template, request, redirect, url_for, session
 
 cursor = mydb.cursor()
 
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -13,7 +12,7 @@ def register():
         password = request.form['password']
         cursor.execute("INSERT INTO USER (firstName, lastName, userName, password) VALUES (%s, %s, %s, SHA1(%s))", (firstName, lastName, userName, password))
         mydb.commit()
-        return render_template('profile.html')
+        return redirect(url_for('profile'))
     return render_template('register.html')
 
 

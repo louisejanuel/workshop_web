@@ -23,3 +23,9 @@ def match():
     results = cursor.fetchall()
     print(results)
     return render_template('match.html', data=results)
+
+
+
+# SUPPRIMER COMPTE
+# MODIFIER MOT DE PASSE & USERNAME
+# PDP ?
