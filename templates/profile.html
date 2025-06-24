@@ -1,7 +1,7 @@
 bonjour {{session['user']}}
 
 <ul>
-    {% for title in data %}
+    {% for (title,) in data %}
     <li>{{ title }}</li>
     {% endfor %}
 </ul>
