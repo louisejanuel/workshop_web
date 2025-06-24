@@ -5,21 +5,30 @@
     <meta charset="UTF-8" />
     <title>Uning uningan</title>
     <link rel="stylesheet" href="static/style.css">
+    <script src="{{ url_for('static', filename='anim.js') }}" defer></script>
 </head>
 
 <body>
-    <h1>inscription</h1>
+    <div id="background"></div>
+    <header>
+        <div> <img src="../static/steve.jpg" alt="logo imac" href="#" /> </div>
+        <div class="lien">
+            <a href="/">Accueil</a>
+            <a href="#">Inscription</a>
+            <a href="/login">Connexion</a>
+        </div>
+    </header>
 
-    <form method="post">
-        <input type="firstName" name="firstName" placeholder="firstName" required>
-        <input type="lastName" name="lastName" placeholder="lastName" required>
-        <input type="userName" name="userName" placeholder="userName" required>
-        <input type="password" name="password" placeholder="Mot de passe" required>
-        <button type="submit">S'inscrire</button>
-    </form>
-
-    <a href="/">Home</a>
-    <a href="/login">Connexion</a>
+    <main>
+        <h1>INSCRIPTION</h1>
+        <form method="post">
+            <input type="firstName" name="firstName" placeholder="Prénom" required>
+            <input type="lastName" name="lastName" placeholder="Nom" required>
+            <input type="userName" name="userName" placeholder="Nom d'utilisateur" required>
+            <input type="password" name="password" placeholder="Mot de passe" required>
+            <button class="bouton2" type="submit">S'inscrire</button>
+        </form>
+    </main>
 </body>
 
 </html>
