@@ -16,9 +16,16 @@
             <img src="../static/steve.png" alt="Logo de Uning uningan">
         </a></div>
         <div class="lien">
-            <a href="/">Accueil</a>
-            <a href="/register">Inscription</a>
-            <a href="/login">Connexion</a>
+            {% if session.user %}
+                <span>Bienvenue, {{ session.user }} !</span>
+                <a href="/">Accueil</a>
+                <a href="/profile">Profil</a>
+                <a href="/logout">Déconnexion</a>
+            {% else %}
+                <a href="/">Accueil</a>
+                <a href="/register">Inscription</a>
+                <a href="/login">Connexion</a>
+            {% endif %}
         </div>
     </header>
     <main>
