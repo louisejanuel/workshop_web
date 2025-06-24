@@ -16,6 +16,7 @@ mydb = mysql.connector.connect(
 )
 
 app = Flask(__name__)
+app.secret_key = "chatlunetourte"
 CORS(app)
 
 cursor = mydb.cursor()
@@ -31,33 +32,25 @@ def register():
     if request.method == 'POST':
         firstName = request.form['firstName']
         lastName = request.form['lastName']
-        # username = request.form['username']
+        userName = request.form['userName']
         password = request.form['password']
-        # cursor.execute("INSERT INTO users (firstName, lastName, username, password) VALUES (%, %, %, SHA1(%))", (firstName, lastName, username, password))
-        cursor.execute("INSERT INTO users (firstName, lastName, password) VALUES (%, %, SHA1(%))", (firstName, lastName, password))
+        cursor.execute("INSERT INTO USER (firstName, lastName, userName, password) VALUES (%s, %s, %s, SHA1(%s))", (firstName, lastName, userName, password))
         mydb.commit()
-        return redirect(url_for('login'))
+        return render_template('youp.html')
     return render_template('register.html')
 
 
-# @app.route('/login', methods=['GET', 'POST'])
-# def login():
-#     if request.method == 'POST':
-#         username = request.form['username']
-#         password = request.form['password']
-#         cursor.execute("SELECT * FROM users WHERE username=% AND password=%", (username, password))
-#         user = cursor.fetchone()
-#         if user:
-#             session['user'] = username
-#             return redirect(url_for('dashboard'))
-#     return render_template('login.html')
-
-
-@app.route('/dashboard')
-def dashboard():
-    if 'user' in session:
-        return f"Bienvenue {session['user']} ! <a href='/logout'>Se déconnecter</a>"
-    return redirect(url_for('login'))
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        userName = request.form['userName']
+        password = request.form['password']
+        cursor.execute("SELECT * FROM USER WHERE userName=%s AND password=SHA1(%s)", (userName, password))
+        user = cursor.fetchone()
+        if user:
+            session['user'] = userName
+            return render_template('youp.html')
+    return render_template('login.html')
 
 
 @app.route('/logout')
