@@ -1,11 +1,16 @@
 from app_init import mydb
 
-def register_user(firstName, lastName, userName, password):
+def get_user_by_username(userName):
     cursor = mydb.cursor()
-    cursor.execute("""
-        INSERT INTO USER (firstName, lastName, userName, password)
-        VALUES (%s, %s, %s, SHA1(%s))
-    """, (firstName, lastName, userName, password))
+    cursor.execute("SELECT * FROM USER WHERE userName = %s", (userName,))
+    return cursor.fetchone()
+
+def insert_user(firstName, lastName, userName, password):
+    cursor = mydb.cursor()
+    cursor.execute(
+        "INSERT INTO USER (firstName, lastName, userName, password) VALUES (%s, %s, %s, SHA1(%s))",
+        (firstName, lastName, userName, password)
+    )
     mydb.commit()
 
 def login_user(userName, password):
