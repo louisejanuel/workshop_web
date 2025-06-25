@@ -4,11 +4,16 @@
 
 {% block content %}
 <h1>INSCRIPTION</h1>
-        <form method="post">
-            <input type="firstName" name="firstName" placeholder="Prénom" required>
-            <input type="lastName" name="lastName" placeholder="Nom" required>
-            <input type="userName" name="userName" placeholder="Nom d'utilisateur" required>
-            <input type="password" name="password" placeholder="Mot de passe" required>
-            <button class="bouton2" type="submit">S'inscrire</button>
-        </form>
+{% if error %}
+<script>
+    alert("{{ error }}");
+</script>
+{% endif %}
+<form method="post">
+    <input type="firstName" name="firstName" placeholder="Prénom" required>
+    <input type="lastName" name="lastName" placeholder="Nom" required>
+    <input type="userName" name="userName" placeholder="Nom d'utilisateur" required>
+    <input type="password" name="password" placeholder="Mot de passe" required>
+    <button class="bouton2" type="submit">S'inscrire</button>
+</form>
 {% endblock %}
