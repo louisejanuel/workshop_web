@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Serveur absences</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>Choisissez vos coups de coeur/h1>
+    <p>Vous pouvez ici décrire votre jeu à ajouter au système</p>
+    
+    <!-- {% for (title, username,) in data %}
+          <li>{{username}} aime aussi {{ title }}</li>
+          {% endfor %} -->
+
+    <form action="/liste" method="post" class="form">
+      <fieldset>
+        <legend>Quels sont tes musiques préférées</legend>
+
+        {% for (idMusic, title, artists, ) in musics %}
+          <div>
+          <label>
+            <input type="checkbox" id={{idMusic}} name="like" value={{idMusic}} />
+            {{title}} de {{artists}}
+          </label>
+        </div>
+        {% endfor %}
+          <!-- <input
+            type="text"
+            id="otherValue"
+            name="other"
+            aria-label="Other interest" />
+        </div> -->
+        <div>
+          <button type="submit">Submit form</button>
+        </div>
+        </fieldset>
+    </form>
+ </body>
+</html>
