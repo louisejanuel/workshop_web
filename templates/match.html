@@ -7,10 +7,12 @@
 voici les personnes avec qui ça match, {{session['user']}}
 
 <ul>
-    {% for (title, username,) in data %}
-    <li>{{username}} aime aussi {{ title }}</li>
+    {% for title, artists, username in data %}
+    <li>{{ username }} aime aussi {{ title }} de {{ artists }} !</li>
     {% endfor %}
 </ul>
 
-<a href='/logout'>Se déconnecter</a>
+<div class="boutons-container">
+    <a href='/logout'><button class="bouton3">Se déconnecter</button></a>
+</div>
 {% endblock %}

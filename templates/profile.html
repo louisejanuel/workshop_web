@@ -3,7 +3,7 @@
 {% block title %}Accueil{% endblock %}
 
 {% block content %}
-<h1> BONJOUR  {{session['user']}}</h1>
+<h1> BONJOUR {{session['user']}}</h1>
 
 <ul>
     {% for (title,) in data %}
@@ -11,9 +11,11 @@
     {% endfor %}
 </ul>
 
-<a href='/match'>Voir mes matchs</a>
+<a href='/match'><button class="boutonSlay">IT'S TIME TO MATCH</button></a>
 
-<a href='/updateprofile'>Modifier mon profil</a>
+<div class="boutons-container">
+    <a href='/updateprofile'><button class="bouton3">Modifier mon profil</button></a>
+    <a href='/logout'><button class="bouton3">Se déconnecter</button></a>
+</div>
 
-<a href='/logout'>Se déconnecter</a>
 {% endblock %}
