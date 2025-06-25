@@ -7,8 +7,8 @@
 voici les personnes avec qui ça match, {{session['user']}}
 
 <ul>
-    {% for title, artists, username in data %}
-    <li>{{ username }} aime aussi {{ title }} de {{ artists }} !</li>
+    {% for username, title, artists, genreName in data %}
+    <li>{{ username }} aime aussi {{ title }} de {{ artists }} (genre : {{ genreName }}) !</li>
     {% endfor %}
 </ul>
 
