@@ -14,12 +14,12 @@ def saisie():
         JOIN ARTIST ON COMPOSED.idArtist = ARTIST.idArtist \
         JOIN GENRE ON MUSIC.idGenre = GENRE.idGenre \
         GROUP BY idMusic, genreName""")
-    musics = cursor.fetchone()
+    musics = cursor.fetchall()
     if request.method == 'POST':
-        idmusics = request.form["title"]
-        genre = request.form["genre"]
-        for i in idmusics :
-            cursor.execute("INSERT INTO USER (idUser, idMusic) VALUES (%s, %s)", (user_id, idmusics[i]))
+        idmusics = request.form.getlist("idMusic")
+        # genre = request.form["genre"]
+        for idmusic in idmusics :
+            cursor.execute("INSERT INTO LIKED (idUser, idMusic) VALUES (%s, %s)", (user_id, idmusic))
         mydb.commit()
 
     return render_template('saisie.html', musics=musics)
