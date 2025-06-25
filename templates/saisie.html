@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+<h1>Choisissez vos musiques coups de coeur !</h1>
+<form action="/saisie" method="post" class="formulaire-musiques">
+  <fieldset class="fieldset-musiques">
+    <legend class="legend-musiques">Quelles sont tes musiques préférées ?</legend>
+
+    {% for idMusic, title, artists, genreName in musics %}
+      <div class="ligne-musique">
+        <label>
+          <input type="checkbox" id="{{idMusic}}" name="idMusic" value="{{idMusic}}" />
+          <span class="musique-info">{{ title }} de {{ artists }} — Genre : {{ genreName }}</span>
+        </label>
+      </div>
+    {% endfor %}
+
+      <!-- <input
+            type="text"
+            id="otherValue"
+            name="other"
+            aria-label="Other interest" />
+        </div> -->
+
+    <div class="submit-musiques">
+      <button type="submit" class="bouton2">Enregistrer</button>
+    </div>
+  </fieldset>
+</form>
+
+{% endblock %}

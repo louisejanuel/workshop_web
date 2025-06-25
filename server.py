@@ -7,6 +7,8 @@ from controllers.match_controller import *
 from models.match_model import *
 from controllers.profile_controller import *
 from models.profile_model import *
+from controllers.saisie_controller import *
+from models.saisie_model import *
 
 
 @app.route("/")
