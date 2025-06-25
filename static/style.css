@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -7,8 +8,10 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    align-items: center; /* centre les enfants horizontalement */
-    justify-content: flex-start; /* on garde les éléments en haut par défaut */
+    align-items: center;
+    /* centre les enfants horizontalement */
+    justify-content: flex-start;
+    /* on garde les éléments en haut par défaut */
     background-color: #f4e5d2;
     font-family: 'Lucida Sans', sans-serif;
 }
@@ -23,16 +26,18 @@ header {
 }
 
 main {
-    flex: 1; /* prend le reste de la page */
+    flex: 1;
+    /* prend le reste de la page */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* centre verticalement dans main */
+    justify-content: center;
+    /* centre verticalement dans main */
     width: 100%;
     max-width: 800px;
     padding: 20px;
     box-sizing: border-box;
-    margin: 30px auto;
+    margin: 0 15%;
 }
 
 form {
@@ -50,9 +55,14 @@ input {
     border-radius: 5px;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-main{
-    margin: 0 15%;
+a:visited {
+    text-decoration: none;
+    color: inherit;
 }
 
 header {
@@ -96,7 +106,7 @@ img {
     padding: 16px;
     border: 3px solid #f38e48;
     border-radius: 5px;
-    background-color:#e9d8ba;
+    background-color: #e9d8ba;
     color: #f38e48;
     font-size: 24px;
     font-weight: 700;
@@ -140,4 +150,55 @@ button:hover {
     background-size: cover;
     pointer-events: none;
     z-index: -1;
+}
+
+.bouton3 {
+    padding: 12px 24px;
+    margin: 10px;
+    border: 2px solid #f38e48;
+    border-radius: 30px;
+    background-color: #e9d8ba;
+    color: #f38e48;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.bouton3:hover {
+    cursor: pointer;
+    background-color: #f38e48;
+    color: #e9d8ba;
+    transform: scale(1.05);
+}
+
+.boutons-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.boutonSlay {
+    display: block;
+    margin: 30px auto;
+    padding: 20px 40px;
+    border: 3px solid #f38e48;
+    border-radius: 40px;
+    background-color: #e9d8ba;
+    color: #f38e48;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.boutonSlay:hover {
+    cursor: pointer;
+    background-color: #f38e48;
+    color: #e9d8ba;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
