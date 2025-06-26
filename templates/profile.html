@@ -6,10 +6,11 @@
 <h1> BONJOUR {{session['user']}}</h1>
 <span>Voici tes likes:</span>
 <ul>
-    {% for (title,artist,genre) in data %}
-    <li>{{ title }} de {{artist}} -- {{genre}}</li>
+    {% for (title, artists, genre) in data %}
+    <li>{{ title }} de {{ artists }} -- {{ genre }}</li>
     {% endfor %}
 </ul>
+
 
 <a href='/match'><button class="boutonSlay">IT'S TIME TO MATCH</button></a>
 <a href="/saisie"><button class="boutonSlay2">Liker mes musiques</button></a>
