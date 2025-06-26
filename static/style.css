@@ -40,7 +40,7 @@ main {
     margin: 0 15%;
 }
 
-form {
+.form {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -95,7 +95,7 @@ footer a {
     text-decoration: none;
 }
 
-img {
+.logo {
     height: 50px;
     width: auto;
 }
@@ -177,6 +177,15 @@ button:hover {
     flex-wrap: wrap;
     margin-top: 30px;
     gap: 10px;
+}
+
+.boutons-container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 30px;
 }
 
 .boutonSlay {
@@ -378,4 +387,12 @@ select {
     font-weight: 700;
     line-height: 30px;
     transition: background-color 0.2s, color 0.2s;
+}
+
+#boutonGoMatch:hover {
+    cursor: pointer;
+    background-color: #f38e48;
+    color: #e9d8ba;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }

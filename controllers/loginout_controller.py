@@ -19,6 +19,14 @@ def register():
 
         # Sinon on ajoute le nouvel utilisateur
         insert_user(firstName, lastName, userName, password)
+        user = login_user(
+            request.form['userName'],
+            request.form['password']
+        )
+        if user:
+            session['user'] = user[3]
+            session['idUser'] = user[0]
+            return redirect(url_for('profile'))
         return redirect(url_for('profile'))
 
     return render_template('register.html')
