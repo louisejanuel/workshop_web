@@ -4,30 +4,55 @@
 
 {% block content %}
 <h1>Choisissez vos musiques coups de coeur !</h1>
-<form action="/saisie" method="post" class="formulaire-musiques">
-  <fieldset class="fieldset-musiques">
-    <legend class="legend-musiques">Quelles sont tes musiques préférées ?</legend>
+<div class="musics-container">
+  <div>
+    <h3>Musiques likées</h3>
+    <ul id="liked-music-list"></ul>
+  </div>
+  <div>
+    <h3>Autres musiques</h3>
+    <ul id="not-liked-music-list"></ul>
+  </div>
+</div>
 
-    {% for idMusic, title, artists, genreName in musics %}
-      <div class="ligne-musique">
-        <label>
-          <input type="checkbox" id="{{idMusic}}" name="idMusic" value="{{idMusic}}" />
-          <span class="musique-info">{{ title }} de {{ artists }} — Genre : {{ genreName }}</span>
-        </label>
-      </div>
-    {% endfor %}
+<script>
+  async function fetchMusics() {
+    const response = await fetch('/api/musics');
+    const data = await response.json();
 
-      <!-- <input
-            type="text"
-            id="otherValue"
-            name="other"
-            aria-label="Other interest" />
-        </div> -->
+    const likedList = document.getElementById('liked-music-list');
+    const notLikedList = document.getElementById('not-liked-music-list');
 
-    <div class="submit-musiques">
-      <button type="submit" class="bouton2">Enregistrer</button>
-    </div>
-  </fieldset>
-</form>
+    likedList.innerHTML = '';
+    notLikedList.innerHTML = '';
 
+    data.liked.forEach(music => {
+      const li = createMusicItem(music, true);
+      likedList.appendChild(li);
+    });
+
+    data.not_liked.forEach(music => {
+      const li = createMusicItem(music, false);
+      notLikedList.appendChild(li);
+    });
+  }
+
+  function createMusicItem(music, isLiked) {
+    const li = document.createElement('li');
+    li.textContent = `${music[1]} de ${music[2]} — Genre : ${music[3]}`;
+
+    const button = document.createElement('button');
+    button.textContent = isLiked ? 'Unlike' : 'Like';
+    button.onclick = async () => {
+      const url = `/api/musics/${music[0]}/${isLiked ? 'unlike' : 'like'}`;
+      await fetch(url, { method: 'POST' });
+      fetchMusics();
+    };
+
+    li.appendChild(button);
+    return li;
+  }
+
+  document.addEventListener('DOMContentLoaded', fetchMusics);
+</script>
 {% endblock %}
