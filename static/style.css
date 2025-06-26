@@ -215,6 +215,9 @@ ul {
 }
 
 li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 15px 25px;
     font-size: 18px;
     color: #333;
@@ -306,4 +309,19 @@ input[type="checkbox"] {
     color: #e9d8ba;
     transform: scale(1.03);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.likeBouton {
+    /* display: block; */
+    margin: 4px 0px 4px 20px;
+    padding: 2px 2px;
+    border: 2px solid #f38e48;
+    border-radius: 30px;
+    background-color: #e9d8ba;
+    color: #f38e48;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }

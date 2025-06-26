@@ -43,6 +43,7 @@
 
     const button = document.createElement('button');
     button.textContent = isLiked ? 'Unlike' : 'Like';
+    button.classList.add('likeBouton'); // Ajout de la classe CSS
     button.onclick = async () => {
       const url = `/api/musics/${music[0]}/${isLiked ? 'unlike' : 'like'}`;
       await fetch(url, { method: 'POST' });
