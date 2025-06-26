@@ -1,0 +1,11 @@
+<ul>
+{% for username, infos in results %}
+    {% if sort == 'title' %}
+        <li>{{ username }} aime aussi ces titres : {{ infos }}</li>
+    {% elif sort == 'artist' %}
+        <li>{{ username }} aime aussi ces artistes : {{ infos }}</li>
+    {% elif sort == 'genre' %}
+        <li>{{ username }} aime aussi ces genres : {{ infos }}</li>
+    {% endif %}
+{% endfor %}
+</ul>
