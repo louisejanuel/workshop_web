@@ -1,5 +1,18 @@
 from app_init import mydb
 
+def user_likes_user(user_id):
+    cursor = mydb.cursor()
+    cursor.execute("""
+        SELECT MUSIC.title, ARTIST.artistName, GENRE.genreName
+        FROM LIKED
+        JOIN MUSIC ON LIKED.idMusic = MUSIC.idMusic
+        JOIN COMPOSED ON MUSIC.idMusic = COMPOSED.idMusic
+        JOIN ARTIST ON COMPOSED.idArtist = ARTIST.idArtist
+        JOIN GENRE ON MUSIC.idGenre = GENRE.idGenre
+        WHERE LIKED.idUser = %s
+    """, (user_id,))
+    return cursor.fetchall()
+
 def update_profile(user_id, userName, password):
     cursor = mydb.cursor()
     cursor.execute("""

@@ -4,10 +4,10 @@
 
 {% block content %}
 <h1> BONJOUR {{session['user']}}</h1>
-
+<span>Voici tes likes:</span>
 <ul>
-    {% for (title,) in data %}
-    <li>{{ title }}</li>
+    {% for (title,artist,genre) in data %}
+    <li>{{ title }} de {{artist}} -- {{genre}}</li>
     {% endfor %}
 </ul>
 

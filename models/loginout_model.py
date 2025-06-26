@@ -19,13 +19,3 @@ def login_user(userName, password):
         SELECT * FROM USER WHERE userName = %s AND password = SHA1(%s)
     """, (userName, password))
     return cursor.fetchone()
-
-def user_likes_user(user_id):
-    cursor = mydb.cursor()
-    cursor.execute("""
-        SELECT MUSIC.title
-        FROM LIKED
-        JOIN MUSIC ON LIKED.idMusic = MUSIC.idMusic
-        WHERE LIKED.idUser = %s
-    """, (user_id,))
-    return cursor.fetchall()
