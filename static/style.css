@@ -389,6 +389,12 @@ select {
     transition: background-color 0.2s, color 0.2s;
 }
 
+#boutonGoMatch:hover {
+    cursor: pointer;
+    background-color: #f38e48;
+    color: #e9d8ba;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 .site-footer {
     background-color: #e9d8ba;
     color: #333;
