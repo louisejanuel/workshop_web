@@ -6,11 +6,38 @@
 <h1>IT'S TIME TO MATCH</h1>
 voici les personnes avec qui ça match, {{session['user']}}
 
-<ul>
-    {% for username, title, artists, genreName in data %}
-    <li>{{ username }} aime aussi {{ title }} de {{ artists }} (genre : {{ genreName }}) !</li>
-    {% endfor %}
-</ul>
+<label for="sort">Trier par :</label>
+<select name="sort" id="sort">
+    <option value="">-- Choisir --</option>
+    <option value="title">Titre</option>
+    <option value="artist">Artiste</option>
+    <option value="genre">Genre</option>
+</select>
+
+<div id="loader" class="spinner" style="display:none;"></div>
+<div id="match-results"></div>
+
+<script>
+    const loader = document.getElementById('loader');
+    const resultsDiv = document.getElementById('match-results');
+    const select = document.getElementById('sort');
+
+    select.addEventListener('change', function () {
+        loader.style.display = 'block';
+        resultsDiv.innerHTML = '';
+
+        fetch(`/match_ajax?sort=${this.value}`)
+            .then(res => res.text())
+            .then(html => {
+                resultsDiv.innerHTML = html;
+            })
+            .finally(() => {
+                loader.style.display = 'none';
+            });
+    });
+</script>
+
+
 
 <div class="boutons-container">
     <a href='/logout'><button class="bouton3">Se déconnecter</button></a>
