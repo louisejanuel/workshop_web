@@ -23,7 +23,7 @@ def get_matches_by_title(user_id):
         )
         AND U.idUser != %s
         GROUP BY U.userName
-        ORDER BY U.userName
+        ORDER BY titles
     """
     cursor.execute(query, (user_id, user_id, user_id, user_id))
     return cursor.fetchall()
@@ -50,7 +50,7 @@ def get_matches_by_artist(user_id):
         )
         AND U.idUser != %s
         GROUP BY U.userName
-        ORDER BY U.userName
+        ORDER BY artists
     """
     cursor.execute(query, (user_id, user_id, user_id, user_id))
     return cursor.fetchall()
@@ -80,7 +80,7 @@ def get_matches_by_genre(user_id):
         )
         AND U.idUser != %s
         GROUP BY U.userName
-        ORDER BY U.userName
+        ORDER BY genres
     """
     cursor.execute(query, (user_id, user_id, user_id, user_id))
     return cursor.fetchall()
