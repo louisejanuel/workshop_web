@@ -3,6 +3,14 @@
 {% block title %}Accueil{% endblock %}
 
 {% block content %}
+
+
+{% if session.user %}
+<h1>BIENVENUE {{ session.user }} !</h1>
+<a href="/profile"><button class="button">Profil</button></a>
+<a href="/logout"><button class="button">Déconnexion</button></a>
+
+{% else %}
 <h1>BIENVENUE</h1>
 <p>En galère pour trouver votre âme soeur dans ce monde hostile et sans pitié ? Vous êtes tombés au bon endroit !
     Bienvenue sur le site où vous trouverez votre âme soeur en un rien de temps, en utilisant vos goûts musicaux.</p>
@@ -11,4 +19,7 @@
     <a href="/register"><button class="button">S'inscrire</button></a>
     <a href="/login"><button class="button">Se connecter</button></a>
 </div>
+
+{% endif %}
+
 {% endblock %}
