@@ -359,3 +359,23 @@ select {
     line-height: 30px;
     transition: background-color 0.2s, color 0.2s;
 }
+
+#match_no_likes{
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+}
+
+#boutonGoMatch{
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 20px;
+    border: 3px solid #f38e48;
+    border-radius: 40px;
+    background-color: #e9d8ba;
+    color: #f38e48;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    transition: background-color 0.2s, color 0.2s;
+}
