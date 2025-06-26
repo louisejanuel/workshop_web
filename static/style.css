@@ -40,7 +40,7 @@ main {
     margin: 0 15%;
 }
 
-form {
+.form {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -95,7 +95,7 @@ footer a {
     text-decoration: none;
 }
 
-img {
+.logo {
     height: 50px;
     width: auto;
 }
@@ -177,6 +177,15 @@ button:hover {
     flex-wrap: wrap;
     margin-top: 30px;
     gap: 10px;
+}
+
+.boutons-container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 30px;
 }
 
 .boutonSlay {

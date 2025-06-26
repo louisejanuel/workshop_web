@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+<h2>Vous nous quittez déjà ? 😢</h2>
+<p>Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.</p>
+<img src="../static/steve_triste.png" alt="steve tout triste">
+<div class="boutons-container">
+    <button id="confirmDeleteBtn" class="btn btn-danger bouton3">Confirmer la suppression</button>
+    <button onclick="window.location.href='/'" class="btn btn-secondary bouton3">Annuler</button>
+</div>
+
+<script>
+    document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
+        if (!confirm("Confirmer la suppression de votre compte ?")) return;
+
+        fetch('/api/deleteaccount', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(async response => {
+                const data = await response.json();
+                console.log("Réponse API :", data);
+
+                if (response.ok && data.success) {
+                    alert(data.message);
+                    window.location.href = '/'; 
+                } else {
+                    alert("Erreur : " + data.message); 
+                    document.getElementById('confirmDeleteBtn').disabled = true; 
+                }
+            })
+            .catch(error => {
+                console.error("Erreur fetch:", error);
+                alert("Erreur lors de la tentative de suppression.");
+            });
+    });
+</script>
+
+
+{% endblock %}

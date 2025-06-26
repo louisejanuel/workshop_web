@@ -9,6 +9,8 @@ from controllers.profile_controller import *
 from models.profile_model import *
 from controllers.saisie_controller import *
 from models.saisie_model import *
+from controllers.confirm_delete_controller import *
+from models.confirm_delete_model import *
 
 
 @app.route("/")
