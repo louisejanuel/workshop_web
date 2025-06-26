@@ -388,3 +388,15 @@ select {
     line-height: 30px;
     transition: background-color 0.2s, color 0.2s;
 }
+
+.site-footer {
+    background-color: #e9d8ba;
+    color: #333;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 14px;
+    border-top: 1px solid #f38e48;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
