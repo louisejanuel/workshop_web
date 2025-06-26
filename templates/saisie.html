@@ -39,6 +39,7 @@
 
   function createMusicItem(music, isLiked) {
     const li = document.createElement('li');
+    li.classList.add('liLike'); 
     li.textContent = `${music[1]} de ${music[2]} — Genre : ${music[3]}`;
 
     const button = document.createElement('button');
